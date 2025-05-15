@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds40v7up2mrkf"]
+[gd_scene load_steps=5 format=3 uid="uid://ds40v7up2mrkf"]
 
 [ext_resource type="PackedScene" uid="uid://3ciawmscu2xt" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ba62sy6ij2csv" path="res://follow_camera.gd" id="2_0xm2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(100, 1, 100)
@@ -25,10 +26,13 @@ transform = Transform3D(0.82656, -6.46114e-10, 0.562848, -0.561314, 0.0737953, 0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0872498, -7.62939e-06, 0.307312)
 speed = 30
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 36.281, 79.1359)
+transform = Transform3D(1, 0, 0, 0, 0.681999, 0.731354, 0, -0.731354, 0.681999, 0, 36, 79.136)
+script = ExtResource("2_0xm2m")
+camera_offset = Vector3(0, 30, 60)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.945314, 0.326162, 0, -0.326162, 0.945314, 0, 43.155, 3.83416)
