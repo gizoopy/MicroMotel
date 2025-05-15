@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://pkd5peqdm4hq"]
+
+[ext_resource type="Script" uid="uid://d1e2kh1ymaq4f" path="res://Guest/Scripts/guestMovement.gd" id="1_w3mc4"]
+[ext_resource type="PackedScene" uid="uid://dxq47frcvhk6o" path="res://Guest/Assets/Hea-Yo.fbx" id="2_osxcc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sepim"]
+height = 2.75659
+radius = 0.943848
+
+[node name="Guest" type="CharacterBody3D"]
+script = ExtResource("1_w3mc4")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522689, 0)
+
+[node name="Hea-Yo" parent="Pivot/Character" instance=ExtResource("2_osxcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01576, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296057, 1.411, 0.0986853)
+shape = SubResource("CylinderShape3D_sepim")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.298573, 1.50055, 0.119538)
+aabb = AABB(-1.00546, -1.45831, -1.01226, 2.01091, 2.86389, 2.02453)
