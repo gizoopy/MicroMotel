@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://nqg8s2gqqiyd"]
+
+[ext_resource type="PackedScene" uid="uid://3ciawmscu2xt" path="res://player.tscn" id="1_f3sb7"]
+
+[node name="world" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(3.75776, 0, 0, 0, 1, 0, 0, 0, 6.4954, 0, 0, 0)
+size = Vector3(50, 2, 25)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999993, 0.00226835, 0.00294793, -0.00359832, 0.790689, 0.612208, -0.000942194, -0.612214, 0.790692, -37.6152, 154.116, 233.696)
+
+[node name="Player" parent="." instance=ExtResource("1_f3sb7")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0242167, 1, -0.00336075)
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 74.5605, 79.7995)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45148, 0.704971, -1.47728)
