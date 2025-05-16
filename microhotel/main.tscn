@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds40v7up2mrkf"]
+[gd_scene load_steps=8 format=3 uid="uid://ds40v7up2mrkf"]
 
 [ext_resource type="PackedScene" uid="uid://3ciawmscu2xt" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ba62sy6ij2csv" path="res://player/follow_camera.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ons8ikasi5sm" path="res://interactables/desk.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c55jwvvty8yp2" path="res://interactables/bed.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b6kdvbr06prch" path="res://menu/hud.tscn" id="5_lquwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(200, 1, 100)
@@ -12,10 +13,6 @@ size = Vector3(200, 1, 100)
 size = Vector3(100, 1, 100)
 
 [node name="Main" type="Node3D"]
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Node2D" type="Node2D" parent="HUD"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -52,3 +49,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.43
 
 [node name="Bed2" parent="." instance=ExtResource("4_lquwl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.071, 1, -31.548)
+
+[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
+player = NodePath("../Player")

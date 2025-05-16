@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var player_movement = PlayerMovement.new()
 @onready var player_rotation = PlayerRotation.new()
 @onready var player_respawn = PlayerRespawn.new()
+@onready var player_money = PlayerMoney.new()
 
 func _physics_process(delta):
 	player_movement.update(delta, self)
