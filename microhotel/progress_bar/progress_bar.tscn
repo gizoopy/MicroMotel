@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88u4rd7dhsn"]
+
+[ext_resource type="Texture2D" uid="uid://bstmyporskwvq" path="res://progress_bar/progress_pink_big_dark.svg" id="1_moeym"]
+[ext_resource type="Texture2D" uid="uid://dns25lncht750" path="res://progress_bar/progress_pink_big.svg" id="2_uo6p3"]
+
+[node name="ProgressBar" type="TextureProgressBar"]
+texture_under = ExtResource("1_moeym")
+texture_progress = ExtResource("2_uo6p3")

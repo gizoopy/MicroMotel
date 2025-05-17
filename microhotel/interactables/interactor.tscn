@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgxpdh8st6rud"]
+
+[ext_resource type="Script" uid="uid://cdo2mbujidbvw" path="res://interactables/interactor.gd" id="1_87ff4"]
+[ext_resource type="Material" uid="uid://eln0s5f0gff7" path="res://materials/player/hatMiddle.tres" id="2_ayov0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_du1pe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2pu6l"]
+
+[node name="Interactor" type="Area3D"]
+script = ExtResource("1_87ff4")
+
+[node name="CollisionBox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_du1pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("2_ayov0")
+mesh = SubResource("BoxMesh_2pu6l")
+skeleton = NodePath("")
