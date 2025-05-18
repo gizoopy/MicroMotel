@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://xr8j1pt2fcit"]
+
+[ext_resource type="PackedScene" uid="uid://y1th2i2y6ru3" path="res://environments/floor/floor_tile_slim.tscn" id="1_duy35"]
+[ext_resource type="PackedScene" uid="uid://ti2v5hudjlfr" path="res://environments/wall/corner_wall.tscn" id="2_6wbhj"]
+[ext_resource type="PackedScene" uid="uid://cbo4uyhodbiiy" path="res://environments/wall/wall_tile.tscn" id="3_17t4j"]
+[ext_resource type="PackedScene" uid="uid://fmdpimfk7mq6" path="res://environments/wall/wall_tile_slim.tscn" id="3_mdnvd"]
+
+[node name="LeftWallSegment" type="Node3D"]
+
+[node name="FloorTile3" parent="." instance=ExtResource("1_duy35")]
+
+[node name="FloorTile4" parent="." instance=ExtResource("1_duy35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="CornerWall" parent="." instance=ExtResource("2_6wbhj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.1, 0, -73)
+
+[node name="WallTile" parent="." instance=ExtResource("3_17t4j")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 25, 0, -73)
+
+[node name="WallTileSlim" parent="." instance=ExtResource("3_mdnvd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.5, 0, 0)

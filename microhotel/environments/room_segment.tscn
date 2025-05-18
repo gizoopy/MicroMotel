@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg60bcd1r7pc8"]
+
+[ext_resource type="PackedScene" uid="uid://k35flscritj5" path="res://environments/floor/floor_tile.tscn" id="1_av6da"]
+[ext_resource type="PackedScene" uid="uid://cbo4uyhodbiiy" path="res://environments/wall/wall_tile.tscn" id="2_ithp1"]
+
+[node name="RoomSegment" type="Node3D"]
+
+[node name="FloorTile" parent="." instance=ExtResource("1_av6da")]
+
+[node name="FloorTile2" parent="." instance=ExtResource("1_av6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="FloorTile3" parent="." instance=ExtResource("1_av6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+
+[node name="FloorTile4" parent="." instance=ExtResource("1_av6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="FloorTile5" parent="." instance=ExtResource("1_av6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -50)
+
+[node name="FloorTile6" parent="." instance=ExtResource("1_av6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -50)
+
+[node name="WallTile" parent="." instance=ExtResource("2_ithp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -97.5)
+
+[node name="WallTile2" parent="." instance=ExtResource("2_ithp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -97.5)
+
+[node name="WallTile3" parent="." instance=ExtResource("2_ithp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -97.5)
