@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ons8ikasi5sm"]
+
+[ext_resource type="Material" uid="uid://7krhj2pevptl" path="res://materials/red.tres" id="1_ep8l3"]
+[ext_resource type="Script" uid="uid://cr5l5y8ciquc7" path="res://interactables/interact.gd" id="1_fh60f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t5y75"]
+size = Vector3(15, 4, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_se7ci"]
+size = Vector3(15, 4, 20)
+
+[node name="Desk" type="StaticBody3D"]
+script = ExtResource("1_fh60f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_ep8l3")
+mesh = SubResource("BoxMesh_t5y75")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_se7ci")
+debug_color = Color(0, 0.6, 0.701961, 0.811765)
