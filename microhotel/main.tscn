@@ -1,38 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds40v7up2mrkf"]
+[gd_scene load_steps=9 format=3 uid="uid://ds40v7up2mrkf"]
 
 [ext_resource type="PackedScene" uid="uid://3ciawmscu2xt" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ba62sy6ij2csv" path="res://player/follow_camera.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ons8ikasi5sm" path="res://interactables/desk.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c55jwvvty8yp2" path="res://interactables/bed.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b6kdvbr06prch" path="res://menu/hud.tscn" id="5_lquwl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
-size = Vector3(200, 1, 100)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
-size = Vector3(100, 1, 100)
+[ext_resource type="PackedScene" uid="uid://dg60bcd1r7pc8" path="res://environments/room_segment.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bsdi4tkd24hfr" path="res://environments/left_wall_segment.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://xr8j1pt2fcit" path="res://environments/right_wall_segment.tscn" id="8_5vw27"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000125885, 0, 0)
-shape = SubResource("BoxShape3D_7dm0k")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -0.00164795, -0.289349, 0.187889)
-mesh = SubResource("BoxMesh_ig7tw")
-skeleton = NodePath("../CollisionShape3D")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.82656, -6.46114e-10, 0.562848, -0.561314, 0.0737953, 0.824307, -0.0415355, -0.997273, 0.0609962, 67.0841, 46.9238, 4.34566)
-shadow_enabled = true
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 98.7127, 100.726, 21.4388)
+light_energy = 0.5
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 98.7127, 100.726, 21.4388)
+light_energy = 0.5
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0872498, -7.62939e-06, 0.307312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -50)
 speed = 30
+spawn_point = Vector3(50, 0, -50)
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 30, 60)
@@ -42,13 +32,21 @@ camera_offset = Vector3(0, 50, 35)
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 
 [node name="Desk" parent="." instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.029, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 2, -40)
 
 [node name="Bed" parent="." instance=ExtResource("4_lquwl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.436, 1, -31.548)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.6505, 2, -86.1402)
 
 [node name="Bed2" parent="." instance=ExtResource("4_lquwl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.071, 1, -31.548)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2834, 1, -31.548)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
+
+[node name="RoomSegment" parent="." instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 0)
+
+[node name="LeftWallSegment" parent="." instance=ExtResource("7_272bh")]
+
+[node name="LeftWallSegment2" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.5, 0, 0)
