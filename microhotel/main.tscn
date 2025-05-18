@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://3ciawmscu2xt" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ba62sy6ij2csv" path="res://player/follow_camera.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://ons8ikasi5sm" path="res://interactables/desk.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://c55jwvvty8yp2" path="res://interactables/bed.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ons8ikasi5sm" path="res://interactables/desk/desk.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c55jwvvty8yp2" path="res://interactables/bed/bed.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b6kdvbr06prch" path="res://menu/hud.tscn" id="5_lquwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
@@ -42,7 +42,7 @@ camera_offset = Vector3(0, 50, 35)
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 
 [node name="Desk" parent="." instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.029, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.029, 1, 1.32581)
 
 [node name="Bed" parent="." instance=ExtResource("4_lquwl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.436, 1, -31.548)

@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c55jwvvty8yp2"]
+[gd_scene load_steps=7 format=3 uid="uid://c55jwvvty8yp2"]
 
-[ext_resource type="Script" uid="uid://pmunesci0gd7" path="res://interactables/bed.gd" id="1_1jt6d"]
+[ext_resource type="Script" uid="uid://pmunesci0gd7" path="res://interactables/bed/bed.gd" id="1_1jt6d"]
 [ext_resource type="Material" uid="uid://d0x4p8ckun7r7" path="res://materials/blue.tres" id="1_xqjo8"]
-[ext_resource type="PackedScene" uid="uid://cgxpdh8st6rud" path="res://interactables/interactor.tscn" id="3_1jt6d"]
+[ext_resource type="PackedScene" uid="uid://dqwkefyfen72q" path="res://interactables/common/interactable.tscn" id="3_chrgn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c32mu"]
 size = Vector3(15, 4, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2rykw"]
+size = Vector3(15, 4, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27kut"]
 size = Vector3(15, 4, 20)
 
 [node name="Bed" type="StaticBody3D"]
@@ -23,6 +26,11 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_2rykw")
 debug_color = Color(0, 0.6, 0.701961, 0.811765)
 
-[node name="Interactor" parent="." node_paths=PackedStringArray("_linked_object") instance=ExtResource("3_1jt6d")]
-_collision_size = Vector3(25, 4, 30)
-_linked_object = NodePath("..")
+[node name="Interactable" parent="." instance=ExtResource("3_chrgn")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_27kut")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+
+[editable path="Interactable"]

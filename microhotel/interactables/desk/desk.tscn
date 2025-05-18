@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://ons8ikasi5sm"]
+[gd_scene load_steps=9 format=3 uid="uid://ons8ikasi5sm"]
 
 [ext_resource type="Material" uid="uid://7krhj2pevptl" path="res://materials/red.tres" id="1_ep8l3"]
-[ext_resource type="Script" uid="uid://cr5l5y8ciquc7" path="res://interactables/desk.gd" id="2_fe605"]
-[ext_resource type="PackedScene" uid="uid://cgxpdh8st6rud" path="res://interactables/interactor.tscn" id="3_ugk5e"]
+[ext_resource type="Script" uid="uid://cr5l5y8ciquc7" path="res://interactables/desk/desk.gd" id="2_fe605"]
+[ext_resource type="PackedScene" uid="uid://dqwkefyfen72q" path="res://interactables/common/interactable.tscn" id="3_yg60b"]
 [ext_resource type="PackedScene" uid="uid://c88u4rd7dhsn" path="res://progress_bar/progress_bar.tscn" id="4_auq6n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_t5y75"]
 size = Vector3(15, 4, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_se7ci"]
+size = Vector3(15, 4, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo6iw"]
 size = Vector3(15, 4, 20)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_auq6n"]
@@ -26,9 +29,11 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_se7ci")
 debug_color = Color(0, 0.6, 0.701961, 0.811765)
 
-[node name="Interactor" parent="." node_paths=PackedStringArray("_linked_object") instance=ExtResource("3_ugk5e")]
-_collision_size = Vector3(25, 4, 30)
-_linked_object = NodePath("..")
+[node name="Interactable" parent="." instance=ExtResource("3_yg60b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.10352e-05, 0)
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_fo6iw")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -42,3 +47,9 @@ transform = Transform3D(10, 0, 0, 0, 8, 0, 0, 0, 8, 0, 14.1057, -7.27551)
 visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_auq6n")
+
+[connection signal="desk_interact" from="Interactable" to="." method="_on_interactable_desk_interact"]
+[connection signal="end_interact" from="Interactable" to="." method="_on_interactable_end_interact"]
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+
+[editable path="Interactable"]

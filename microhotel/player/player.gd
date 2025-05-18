@@ -20,15 +20,15 @@ func _physics_process(delta):
 	player_rotation.update(delta, self)
 	player_respawn.update(delta, self)
 
-func _process(delta):
-	if Input.is_action_pressed("interact") and interaction_areas.size() > 0:
-		var closest_area = get_closest_interaction_area()
-		if closest_area and closest_area._linked_object and closest_area._linked_object.has_method("_interact"):
-			closest_area._linked_object._interact(delta)
-	if Input.is_action_just_released("interact") and interaction_areas.size() > 0:
-		var closest_area = get_closest_interaction_area()
-		if closest_area and closest_area._linked_object and closest_area._linked_object.has_method("_end_interact"):
-			closest_area._linked_object._end_interact()
+#func _process(delta):
+	#if Input.is_action_pressed("interact") and interaction_areas.size() > 0:
+		#var closest_area = get_closest_interaction_area()
+		#if closest_area and closest_area._linked_object and closest_area._linked_object.has_method("_interact"):
+			#closest_area._linked_object._interact(delta)
+	#if Input.is_action_just_released("interact") and interaction_areas.size() > 0:
+		#var closest_area = get_closest_interaction_area()
+		#if closest_area and closest_area._linked_object and closest_area._linked_object.has_method("_end_interact"):
+			#closest_area._linked_object._end_interact()
 
 func set_current_interaction_area(area: Area3D):
 	if area not in interaction_areas:
