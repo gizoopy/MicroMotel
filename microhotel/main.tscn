@@ -38,7 +38,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 2,
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.6505, 2, -86.1402)
 
 [node name="Bed2" parent="." instance=ExtResource("4_lquwl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 111.157, 2, -86.1402)
+
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2834, 1, -31.548)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
