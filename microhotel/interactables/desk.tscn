@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ons8ikasi5sm"]
+[gd_scene load_steps=7 format=3 uid="uid://ons8ikasi5sm"]
 
-[ext_resource type="Material" uid="uid://7krhj2pevptl" path="res://materials/red.tres" id="1_ep8l3"]
 [ext_resource type="Script" uid="uid://cr5l5y8ciquc7" path="res://interactables/desk.gd" id="2_fe605"]
 [ext_resource type="PackedScene" uid="uid://cgxpdh8st6rud" path="res://interactables/interactor.tscn" id="3_ugk5e"]
 [ext_resource type="PackedScene" uid="uid://c88u4rd7dhsn" path="res://progress_bar/progress_bar.tscn" id="4_auq6n"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_t5y75"]
-size = Vector3(15, 4, 20)
+[ext_resource type="PackedScene" uid="uid://dtcc23cuqktif" path="res://interactables/desk/desk.glb" id="4_yw1te"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_se7ci"]
 size = Vector3(14.3, 7.7, 7.4)
@@ -17,17 +14,14 @@ viewport_path = NodePath("SubViewport")
 [node name="Desk" type="StaticBody3D"]
 script = ExtResource("2_fe605")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_ep8l3")
-mesh = SubResource("BoxMesh_t5y75")
-skeleton = NodePath("../..")
-
 [node name="ObjectCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15, 3.85, -3.7)
 shape = SubResource("BoxShape3D_se7ci")
 debug_color = Color(0, 0.6, 0.701961, 0.811765)
 
 [node name="Interactor" parent="." node_paths=PackedStringArray("_linked_object") instance=ExtResource("3_ugk5e")]
-_collision_size = Vector3(25, 4, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15, 3.85, -3.7)
+_collision_size = Vector3(24.3, 4, 17.4)
 _linked_object = NodePath("..")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -42,3 +36,5 @@ transform = Transform3D(10, 0, 0, 0, 8, 0, 0, 0, 8, 0, 14.1057, -7.27551)
 visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_auq6n")
+
+[node name="desk" parent="." instance=ExtResource("4_yw1te")]

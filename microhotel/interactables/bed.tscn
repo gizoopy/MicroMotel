@@ -1,28 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://c55jwvvty8yp2"]
+[gd_scene load_steps=8 format=3 uid="uid://c55jwvvty8yp2"]
 
 [ext_resource type="Script" uid="uid://pmunesci0gd7" path="res://interactables/bed.gd" id="1_1jt6d"]
 [ext_resource type="Material" uid="uid://d0x4p8ckun7r7" path="res://materials/blue.tres" id="1_xqjo8"]
 [ext_resource type="PackedScene" uid="uid://cgxpdh8st6rud" path="res://interactables/interactor.tscn" id="3_1jt6d"]
+[ext_resource type="Material" uid="uid://dcf8ua6xhd7qk" path="res://interactables/bed/furniture_material.tres" id="4_r0u7i"]
+[ext_resource type="ArrayMesh" uid="uid://4c6iir6cndhj" path="res://interactables/bed/assets/bed_single_B.obj" id="5_hodg7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c32mu"]
 size = Vector3(15, 4, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2rykw"]
-size = Vector3(15, 4, 20)
+size = Vector3(8, 4, 15)
 
 [node name="Bed" type="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_1jt6d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 material_override = ExtResource("1_xqjo8")
 mesh = SubResource("BoxMesh_c32mu")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -7.5)
 shape = SubResource("BoxShape3D_2rykw")
 debug_color = Color(0, 0.6, 0.701961, 0.811765)
 
 [node name="Interactor" parent="." node_paths=PackedStringArray("_linked_object") instance=ExtResource("3_1jt6d")]
-_collision_size = Vector3(25, 4, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -7.5)
+_collision_size = Vector3(18, 4, 25)
 _linked_object = NodePath("..")
+
+[node name="BedSingleB" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4, 0, -7.5)
+material_override = ExtResource("4_r0u7i")
+mesh = ExtResource("5_hodg7")

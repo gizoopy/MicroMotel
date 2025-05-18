@@ -25,20 +25,20 @@ speed = 30
 spawn_point = Vector3(50, 0, -50)
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 30, 60)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, -0.0643158, 30.5773, 59.7012)
 script = ExtResource("2_0xm2m")
 camera_offset = Vector3(0, 50, 35)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 
 [node name="Desk" parent="." instance=ExtResource("3_1bvp3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 2, -40)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, -40)
 
 [node name="Bed" parent="." instance=ExtResource("4_lquwl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.6505, 2, -86.1402)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 70, 0, -70)
 
 [node name="Bed2" parent="." instance=ExtResource("4_lquwl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2834, 1, -31.548)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 100, 0, -70)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_lquwl")]
 player = NodePath("../Player")
